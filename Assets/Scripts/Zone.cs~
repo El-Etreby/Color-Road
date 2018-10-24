@@ -1,0 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Zone : MonoBehaviour {
+    public const float defaultSpeed = 0.2f;
+    public float speed;
+
+    // Use this for initialization
+    void Start () {
+        speed = defaultSpeed;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        transform.Translate(0, 0, -1 * speed);
+        if(transform.position.z < -100) {
+            transform.Translate(0, 0, 200);
+        }
+	}
+}

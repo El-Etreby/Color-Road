@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4d3f463b2033f4366a99c0397e9b961e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BlueBallPrefab: {instanceID: 0}
+  - RedBallPrefab: {instanceID: 0}
+  - GreenBallPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,40 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Ball : MonoBehaviour {
+    public float speed = 0.1f;
+    public Transform BlueBallPrefab;
+    public Transform RedBallPrefab;
+    public Transform GreenBallPrefab;
+    private float time; 
+
+    // Use this for initialization
+    void Start () {
+        time = 0.0f;
+        //GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        //sphere.transform.position = new Vector3(-10, 1.7f, -30);
+        //sphere.transform.sca
+        //Instantiate(BallPrefab, new Vector3(-10, 1.77f, -30), Quaternion.identity);
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        transform.Translate(0, 0, -1 * speed);
+        //if (transform.position.z < -100)
+        //{
+        //    transform.Translate(0, 0, 200);
+        //}
+    }
+
+     void FixedUpdate()
+    {
+
+        //Debug.Log("FixedUpdate time :" + Time.deltaTime);
+        time += Time.deltaTime;
+        if(time > 1.0) {
+            Instantiate(BlueBallPrefab, new Vector3(-10, 1.77f, -30), Quaternion.identity);
+            time = 0.0f;
+        }
+    }
+}
