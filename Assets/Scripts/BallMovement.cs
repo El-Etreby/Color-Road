@@ -15,13 +15,6 @@ public class BallMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //player = GameObject.Find("Player");
-        //speed = player.GetComponent<Player>().speed;
-        //transform.Translate(0, 0, -1 * speed);
-        //if (transform.position.z < player.transform.position.z - 10)
-        //{
-        //    Destroy(this.gameObject);
-        //}
     }
 
     private void FixedUpdate()

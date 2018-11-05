@@ -13,11 +13,6 @@ public class RoadController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //speed = GameObject.Find("Player").GetComponent<Player>().speed;
-        //transform.Translate(0, 0, -1 * speed);
-        //if(transform.position.z < -200) {
-        //    transform.Translate(0, 0, 400);
-        //}
 	}
 
     private void FixedUpdate()
@@ -25,7 +20,7 @@ public class RoadController : MonoBehaviour {
         player = GameObject.Find("Player");
         speed = player.GetComponent<Player>().speed;
         transform.Translate(0, 0, -1 * speed);
-        if (transform.position.z < -200)
+        if (transform.position.z < -245)
         {
             transform.Translate(0, 0, 400);
         }

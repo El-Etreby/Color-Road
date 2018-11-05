@@ -20,7 +20,7 @@ public class BallGeneration : MonoBehaviour {
      void FixedUpdate()
     {
         time += Time.deltaTime;
-        if(time > 3.0) {
+        if(time > 2.0) {
             int RandomColor = Random.Range(0, 3);
             if(RandomColor == 0) {
                 Instantiate(BlueBallPrefab, new Vector3(Random.Range(-1, 1) * 10, 1.77f, 10), Quaternion.identity);

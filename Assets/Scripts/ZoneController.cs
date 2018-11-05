@@ -27,15 +27,15 @@ public class ZoneController : MonoBehaviour {
             int RandomColor = Random.Range(0, 3);
             if (RandomColor == 0)
             {
-                Instantiate(BlueZonePrefab, new Vector3(0,15,-5), Quaternion.identity);
+                Instantiate(BlueZonePrefab, new Vector3(0,0,-10), Quaternion.identity);
             }
             else if (RandomColor == 1)
             {
-                Instantiate(RedZonePrefab, new Vector3(0, 15, -5), Quaternion.identity);
+                Instantiate(RedZonePrefab, new Vector3(0, 0, -10), Quaternion.identity);
             }
             else if (RandomColor == 2)
             {
-                Instantiate(GreenZonePrefab, new Vector3(0, 15, -5), Quaternion.identity);
+                Instantiate(GreenZonePrefab, new Vector3(0, 0, -10), Quaternion.identity);
             }
             time = 0.0f;
         }

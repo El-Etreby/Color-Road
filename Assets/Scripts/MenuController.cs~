@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
-    public string mainMenuScene;
+    public bool isPaused;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
-    public bool isPaused;
+    public AudioSource gameSoundTrack;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        gameSoundTrack = GameObject.Find("Sound Controller").GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,14 +21,20 @@ public class MenuController : MonoBehaviour {
             if(isPaused) {
                 ResumeGame();
             } else {
-                isPaused = true;
-                pauseMenu.SetActive(true);
-                Time.timeScale = 0f;
+                PauseGame();
             }
         }
 	}
 
+    public void PauseGame() {
+        gameSoundTrack.Pause();
+        isPaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     public void ResumeGame () {
+        gameSoundTrack.UnPause();
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -40,10 +46,11 @@ public class MenuController : MonoBehaviour {
     }
 
     public void QuitGame() {
-
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void LoadGameOverMenu() {
+        gameSoundTrack.Pause();
         gameOverMenu.SetActive(true);
         Time.timeScale = 0f;
     }
