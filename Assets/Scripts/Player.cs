@@ -19,7 +19,6 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        print("test");
         material = GetComponent<Renderer>().material;
         this.gameObject.tag = "BluePlayer";
         material.color = Color.blue;
@@ -127,6 +126,6 @@ public class Player : MonoBehaviour {
             this.material.color = Color.green;
 
         }
-        scoreText.text = "Score : " + score;
+        scoreText.text = "SCORE : " + score;
     }
 }

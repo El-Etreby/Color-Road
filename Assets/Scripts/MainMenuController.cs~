@@ -8,12 +8,16 @@ public class MainMenuController : MonoBehaviour {
 
     public GameObject mainMenu;
     public GameObject optionsMenu;
+    public GameObject howToPlayScreen;
+    public GameObject creditsScreen;
     public Text soundText;
     public bool sound;
 
     // Use this for initialization
     void Start () {
         optionsMenu.SetActive(false);
+        howToPlayScreen.SetActive(false);
+        creditsScreen.SetActive(false);
         mainMenu.SetActive(true);
         if (AudioListener.volume == 1)
         {
@@ -60,5 +64,23 @@ public class MainMenuController : MonoBehaviour {
     public void BackToMainMenu() {
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
+    }
+
+    public void OpenHowToPlayScreen() {
+        optionsMenu.SetActive(false);
+        howToPlayScreen.SetActive(true);
+    }
+
+    public void OpenCreditsScreen()
+    {
+        optionsMenu.SetActive(false);
+        creditsScreen.SetActive(true);
+    }
+
+    public void BackToOptionsMenu()
+    {
+        howToPlayScreen.SetActive(false);
+        creditsScreen.SetActive(false);
+        optionsMenu.SetActive(true);
     }
 }
