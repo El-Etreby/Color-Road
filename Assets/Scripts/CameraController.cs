@@ -16,10 +16,16 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(Input.GetKeyDown(KeyCode.C)) {
+            changeCamera();
+        }
+	}
+
+    public void changeCamera() {
+        if(Time.timeScale != 0) {
             cam1.enabled = !cam1.enabled;
             cam1.GetComponent<AudioListener>().enabled = cam1.enabled;
             cam2.enabled = !cam2.enabled;
             cam2.GetComponent<AudioListener>().enabled = cam2.enabled;
         }
-	}
+    }
 }

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
         startingSpeed = 1;
         speed = startingSpeed;
         score = 0;
-        scoreInterval = 20;
+        scoreInterval = 50;
         delay = Time.time;
     }
 	
@@ -33,13 +33,24 @@ public class Player : MonoBehaviour {
 	void Update () {
         float currentX = this.GetComponent<Transform>().position.x;
 
-        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && currentX > -10)
-        {
-            transform.Translate(-10f, 0, 0);
-        }
-        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && currentX < 10)
-        {
-            transform.Translate(10f, 0, 0);
+        if (Application.platform == RuntimePlatform.Android) {
+            if (Input.acceleration.x < -0.2 && currentX > -10 && Time.timeScale != 0 && Time.time - delay >= 0.1f) {
+                delay = Time.time;
+                transform.Translate(-10f, 0, 0);
+            } else if(Input.acceleration.x > 0.2 && currentX < 10 && Time.timeScale != 0 && Time.time - delay >= 0.1f)
+            {
+                delay = Time.time;
+                transform.Translate(10f, 0, 0);
+            }
+        } else {
+            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && currentX > -10 && Time.timeScale != 0)
+            {
+                transform.Translate(-10f, 0, 0);
+            }
+            if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && currentX < 10 && Time.timeScale != 0)
+            {
+                transform.Translate(10f, 0, 0);
+            }
         }
     }
 

@@ -10,11 +10,13 @@ public class MainMenuController : MonoBehaviour {
     public GameObject optionsMenu;
     public GameObject howToPlayScreen;
     public GameObject creditsScreen;
+    public AudioSource menuSoundTrack;
     public Text soundText;
     public bool sound;
 
     // Use this for initialization
     void Start () {
+        menuSoundTrack.Play();
         optionsMenu.SetActive(false);
         howToPlayScreen.SetActive(false);
         creditsScreen.SetActive(false);
@@ -36,6 +38,7 @@ public class MainMenuController : MonoBehaviour {
 
     public void StartGame()
     {
+        menuSoundTrack.Stop();
         SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
     }
